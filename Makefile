@@ -13,15 +13,17 @@
 # **************************************************************************** #
 # ARGUMENTS
 
-NAME	= libft.a
+NAME	=	libftprintf.a
 
-FLAGS	= -Wall -Wextra -Werror
+FLAGS	=	-Wall -Wextra -Werror
 
-F_PRINTF=
+F_PRINTF=	ft_putchar_fd.c		ft_strlen.c		ft_putstr_fd.c	\
+			ft_putnbr_base.c	ft_putaddr.c
 
-HEADER	=	libftprintf.h
+HEADER	=	libft.h
 
-SRCS	=	$(addprefix srcs/, ${F_PRINTF})
+SRCS	=	$(addprefix srcs/, ${F_PRINTF})						\
+			ft_printf.c
 
 OBJS	=	$(SRCS:.c=.o)
 

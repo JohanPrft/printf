@@ -23,33 +23,19 @@ void	reccu(long long nb, char *base, int blen, ssize_t *len)
 	}
 }
 
-ssize_t	ft_putnbr_base(long long nbr, char *base)
+ssize_t	ft_putnbr_base(long long nbr, char *base, ssize_t *len)
 {
-	size_t	blen;
-	ssize_t	len;
+	ssize_t	blen;
 
 	blen = ft_strlen(base);
-	len = 0;
 	if (nbr < 0)
 	{
-		ft_putchar_fd('-', 1, &len);
+		ft_putchar_fd('-', 1, len);
 		nbr *= -1;
 	}
-	if (nbr < blen && len != -1)
-		ft_putchar_fd(base[nbr], 1, &len);
-	if (nbr >= blen && len != -1)
-		reccu(nbr, base, blen, &len);
-	return (len);
-}
-
-int	main(void)
-{
-	int	i;
-	unsigned int u;
-
-	i = -1;
-	u = (unsigned int)i;
-	printf("%u\n", u);
-	ft_putnbr_base(u, "0123456789");
-	return (0);
+	if (nbr < blen && *len != -1)
+		ft_putchar_fd(base[nbr], 1, len);
+	if (nbr >= blen && *len != -1)
+		reccu(nbr, base, blen, len);
+	return (*len);
 }

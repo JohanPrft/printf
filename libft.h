@@ -14,16 +14,13 @@
 
 # define LIBFT_H
 # include <stdlib.h>
+# include <stdarg.h>
 # include <unistd.h>
-# include <stdio.h> ///////////////////////////
 
-void	ft_putchar_fd(char c, int fd, ssize_t *len);
+ssize_t	ft_putchar_fd(char c, int fd, ssize_t *len);
 size_t	ft_strlen(const char *s);
-void	ft_putstr_fd(char *s, int fd, ssize_t *len);
-ssize_t	ft_putnbr_base(long long nbr, char *base);
-
-void	ft_putunbr_fd(unsigned int n, int fd);
-void	ft_puthexa(long l, char *str);
-ssize_t	ft_putaddr(unsigned long l, char *str);
+ssize_t	ft_putstr_fd(char *s, int fd, ssize_t *len);
+ssize_t	ft_putnbr_base(long long nbr, char *base, ssize_t *len);
+ssize_t	ft_putaddr(unsigned long l, char *str, ssize_t *len);
 
 #endif
