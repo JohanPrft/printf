@@ -6,7 +6,7 @@
 #    By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/15 10:10:32 by jprofit           #+#    #+#              #
-#    Updated: 2022/11/29 13:51:36 by jprofit          ###   ########.fr        #
+#    Updated: 2022/11/29 15:05:29 by jprofit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,12 +17,12 @@ NAME	=	libftprintf.a
 
 FLAGS	=	-Wall -Wextra -Werror
 
-F_PRINTF=	ft_putchar_fd.c		ft_strlen.c		ft_putstr_fd.c		\
-			ft_putnbr_base.c	ft_putaddr.c	ft_putunbr_base.c	\
+F_PRINTF=	ft_putchar_fd.c			ft_putstr_fd.c		ft_putunbr_b.c 		\
+			ft_putnbr.c 			ft_putaddr.c
 
 HEADER	=	ft_printf.h
 
-SRCS	=	$(addprefix srcs/, ${F_PRINTF})						\
+SRCS	=	$(addprefix srcs/, ${F_PRINTF})									\
 			ft_printf.c
 
 OBJS	=	$(SRCS:.c=.o)

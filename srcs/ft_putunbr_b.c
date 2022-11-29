@@ -1,22 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putaddr.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_b.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/25 11:23:25 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/29 15:07:59 by jprofit          ###   ########.fr       */
+/*   Created: 2022/08/11 15:11:52 by jprofit           #+#    #+#             */
+/*   Updated: 2022/11/29 14:49:46 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-ssize_t	ft_putaddr(unsigned long l, char *str, ssize_t *len)
+static size_t	ft_strlen(const char *s)
 {
-	if (ft_putstr_fd("0x", 1, len) == -1)
-		return (-1);
-	if (ft_putunbr_b(l, str, len) == -1)
-		return (-1);
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+
+ssize_t	ft_putunbr_b(unsigned long nb, char *base, ssize_t *len)
+{
+	size_t		blen;
+
+	blen = ft_strlen(base);
+	if (nb < blen && *len != -1)
+		ft_putchar_fd(base[nb], 1, len);
+	if (nb >= blen)
+	{
+		ft_putunbr_b(nb / blen, base, len);
+		ft_putunbr_b(nb % blen, base, len);
+	}
 	return (*len);
 }
