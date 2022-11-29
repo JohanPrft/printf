@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_putunbr_base.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/11 15:11:52 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/29 13:52:45 by jprofit          ###   ########.fr       */
+/*   Created: 2022/11/29 13:46:18 by jprofit           #+#    #+#             */
+/*   Updated: 2022/11/29 13:53:04 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static void	reccu(long nb, char *base, int blen, ssize_t *len)
+static void	reccuu(unsigned long nb, char *base, size_t blen, ssize_t *len)
 {
 	if (nb < blen && *len != -1)
 		ft_putchar_fd(base[nb], 1, len);
 	if (nb >= blen)
 	{
-		reccu(nb / blen, base, blen, len);
-		reccu(nb % blen, base, blen, len);
+		reccuu(nb / blen, base, blen, len);
+		reccuu(nb % blen, base, blen, len);
 	}
 }
 
-ssize_t	ft_putnbr_base(long nbr, char *base, ssize_t *len)
+ssize_t	ft_putunbr_base(unsigned long nbr, char *base, ssize_t *len)
 {
-	ssize_t		blen;
+	size_t		blen;
 
 	blen = ft_strlen(base);
 	if (nbr < 0)
@@ -36,6 +36,6 @@ ssize_t	ft_putnbr_base(long nbr, char *base, ssize_t *len)
 	if (nbr < blen && *len != -1)
 		ft_putchar_fd(base[nbr], 1, len);
 	if (nbr >= blen && *len != -1)
-		reccu(nbr, base, blen, len);
+		reccuu(nbr, base, blen, len);
 	return (*len);
 }

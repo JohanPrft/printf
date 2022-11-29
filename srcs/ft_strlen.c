@@ -6,11 +6,11 @@
 /*   By: jprofit <jprofit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 17:16:02 by jprofit           #+#    #+#             */
-/*   Updated: 2022/11/25 12:41:06 by jprofit          ###   ########.fr       */
+/*   Updated: 2022/11/29 09:46:40 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "../ft_printf.h"
 
 size_t	ft_strlen(const char *s)
 {
